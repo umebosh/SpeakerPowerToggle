@@ -4,46 +4,11 @@ and replace your-access-token-goes-here with your actual access token-->
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./script.js" type="text/javascript"></script>
   </head>
   <body>
-    <script type="text/javascript">
-      // TODO: out file
-      url = 'https://api.particle.io/v1/devices/53ff68066667574849402567/power?access_token=a11f697cf9b8b67babf2c1352da987d4c2266e6f';
-      $btn = null;
-
-      $(function() {
-        // init
-        post_power('state');
-        $btn = $('#main-btn');
-        state = 0;
-        $btn.click(function() {
-          post_power(['on', 'off'][state]);
-        });
-
-      });
-
-      function update_button(state) {
-        $btn.text(['Power On', 'Power Off'][!state]);
-      }
-
-      function post_power(arg) {
-        $.post(
-          url,
-          { args: arg },
-          function(data) {
-            console.log(data);
-            console.log('clicked');
-            // TODO: check connected
-            state = data['return_value'];
-            update_button(state);
-          }
-        );
-      }
-    </script>
     <div id="container">
       <button id="main-btn" class='on'>Power On</button>
-
-  <form action="" method="POST">
     </div>
 
   </body>
