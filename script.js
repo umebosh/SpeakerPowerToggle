@@ -14,6 +14,7 @@ $(function() {
 });
 
 function update_button(state) {
+    $btn.attr('disabled');
     if (state == 0) {
         $btn.text('Power On');
         $icon.removeClass('fa-volume-up');
@@ -27,6 +28,7 @@ function update_button(state) {
 
 function post_power(arg) {
     url = 'https://api.particle.io/v1/devices/53ff68066667574849402567/power?access_token=a11f697cf9b8b67babf2c1352da987d4c2266e6f';
+    $('#main-btn').removeAttr('disabled');
     $.post(
         url,
         { args: arg },
