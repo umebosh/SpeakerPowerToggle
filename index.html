@@ -2,11 +2,32 @@
 and replace your-access-token-goes-here with your actual access token-->
 <!DOCTYPE>
 <html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
   <body>
     <script type="text/javascript">
+      // TODO: out file
+      $(function() {
+        $btn = $('#main-btn');
+        url = 'https://api.particle.io/v1/devices/53ff68066667574849402567/power?access_token=a11f697cf9b8b67babf2c1352da987d4c2266e6f'
+        $btn.click(function() {
+          $.post(
+            url,
+            null,
+            function(data) {
+              console.log(data);
+              console.log('clicked');
+            }
+          );
+        });
+      });
     </script>
     <div id="container">
-      <button id="main-btn">Power On</button>
+      <button id="main-btn" class='on'>Power On</button>
+
+  <form action="" method="POST">
     </div>
+
   </body>
 </html>
