@@ -5,6 +5,7 @@ $(function() {
     // init
     post_power('state');
     $btn = $('#main-btn');
+    $icon = $('#main-icon');
     state = 0;
     $btn.click(function() {
         post_power(['on', 'off'][state]);
@@ -14,9 +15,13 @@ $(function() {
 
 function update_button(state) {
     if (state == 0) {
-        $btn.text('Power Of');
+        $btn.text('Power On');
+        $icon.removeClass('fa-volume-up');
+        $icon.addClass('fa-volume-off');
     } else {
         $btn.text('Power Off');
+        $icon.removeClass('fa-volume-off');
+        $icon.addClass('fa-volume-up');
     }
 }
 
